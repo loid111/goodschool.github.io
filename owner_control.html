@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบดูแลนักเรียน - เจ้าของ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: #a1c9e7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ffcc00;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #3b5998;
+            color: white;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>ระบบดูแลนักเรียน - เจ้าของ</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>รหัสนักเรียน</th>
+                <th>ชื่อ</th>
+                <th>สถานะ</th>
+                <th>ดูรายละเอียด</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>001</td>
+                <td>สมชาย ใจดี</td>
+                <td>เรียนอยู่</td>
+                <td><button onclick="viewDetails('001')">ดู</button></td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>สมนึก รักเรียน</td>
+                <td>เรียนอยู่</td>
+                <td><button onclick="viewDetails('002')">ดู</button></td>
+            </tr>
+            <tr>
+                <td>003</td>
+                <td>มานพ หมั่นเพียร</td>
+                <td>เรียนอยู่</td>
+                <td><button onclick="viewDetails('003')">ดู</button></td>
+            </tr>
+            <!-- เพิ่มนักเรียนอื่น ๆ ที่ต้องการแสดงผล -->
+        </tbody>
+    </table>
+
+    <div class="footer">
+        ©Starsoftware Co., Ltd.
+    </div>
+
+    <script>
+        function viewDetails(studentId) {
+            // ในการใช้งานจริง คุณอาจต้องใช้ AJAX เพื่อดึงข้อมูลจากเซิร์ฟเวอร์
+            alert("แสดงรายละเอียดสำหรับนักเรียน ID: " + studentId);
+            // คุณสามารถเปลี่ยนเส้นทางไปยังหน้าแสดงรายละเอียดนักเรียนได้ที่นี่
+            // เช่น: window.location.href = "student_details.html?id=" + studentId;
+        }
+    </script>
+</body>
+</html>

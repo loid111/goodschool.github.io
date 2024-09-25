@@ -1,0 +1,15 @@
+<script>
+    function goToNextPage() {
+        const usernameInput = document.getElementById("username").value;
+        const passwordInput = document.getElementById("password").value;
+        const ownerPassword = "091165"; 
+
+        if (usernameInput === "Owner" && passwordInput === ownerPassword) {
+            window.location.href = "owner_control.html";
+        } else if (usernameInput === "student" && passwordInput === "password") { // เพิ่มเงื่อนไขสำหรับนักเรียน
+            window.location.href = "student_dashboard.html"; // เปลี่ยนไปที่หน้าสำหรับนักเรียน
+        } else {
+            alert("กรุณากรอกชื่อผู้ใช้และรหัสผ่านให้ถูกต้อง.");
+        }
+    }
+</script>

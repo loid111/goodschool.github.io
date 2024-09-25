@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สมัครบัญชีนักเรียน</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* สไตล์ของหน้า */
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: #a1c9e7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .registration-container {
+            background-color: #f1f1f1;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        .registration-container h2 {
+            color: #ffcc00;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .registration-container input[type="text"], 
+        .registration-container input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .registration-container button {
+            background-color: #3b5998;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 16px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            width: 100%;
+        }
+    </style>
+    <script>
+        let existingUsers = []; // รายชื่อผู้ใช้ที่มีอยู่
+
+        function register() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            const usernameRegex = /^(Skwc|skwc)\d+$/; // ตรวจสอบชื่อที่ถูกต้อง
+
+            if (!usernameRegex.test(username)) {
+                alert("ชื่อผู้ใช้ต้องเริ่มต้นด้วย 'Skwc' หรือ 'skwc' ตามด้วยตัวเลขเท่านั้น.");
+                return;
+            }
+
+            if (existingUsers.includes(username)) {
+                alert("ชื่อผู้ใช้นี้ถูกใช้แล้ว กรุณาเลือกชื่อใหม่.");
+                return;
+            }
+
+            if (password) {
+                existingUsers.push(username); // เพิ่มชื่อผู้ใช้ในรายการ
+                alert("สมัครบัญชีเรียบร้อยแล้ว! กรุณากลับไปที่หน้าเข้าสู่ระบบ.");
+                window.location.href = "login.html"; // เปลี่ยนไปที่หน้าเข้าสู่ระบบ
+            } else {
+                alert("กรุณากรอกรหัสผ่าน.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="registration-container">
+        <h2>สมัครบัญชีนักเรียน</h2>
+
+        <label for="username">ชื่อผู้ใช้:</label>
+        <input type="text" id="username" placeholder="ชื่อผู้ใช้ (เช่น Skwc1234)">
+
+        <label for="password">รหัสผ่าน:</label>
+        <input type="password" id="password" placeholder="รหัสผ่าน">
+
+        <button type="button" onclick="register()">สมัคร</button>
+    </div>
+</body>
+</html>

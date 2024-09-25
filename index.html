@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบดูแลนักเรียน</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: #a1c9e7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #f1f1f1;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            color: #ffcc00;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .login-container img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+
+        .login-container input[type="text"], 
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .login-container input[type="text"]:focus,
+        .login-container input[type="password"]:focus {
+            box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5);
+        }
+
+        .login-container button {
+            background-color: #3b5998;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 16px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            width: 100%;
+        }
+
+        .login-container button:hover {
+            background-color: #2d4373;
+            transform: scale(1.05);
+        }
+
+        .login-container button:active {
+            background-color: #1d2f52;
+            transform: scale(0.95);
+        }
+
+        .footer {
+            font-size: 12px;
+            color: gray;
+            margin-top: 20px;
+        }
+
+        .register-button {
+            background-color: #28a745; /* สีเขียวสำหรับปุ่มสมัครบัญชี */
+            margin-top: 10px;
+        }
+
+        .register-button:hover {
+            background-color: #218838;
+        }
+    </style>
+    <script>
+        function goToNextPage() {
+            const usernameInput = document.getElementById("username").value;
+            const passwordInput = document.getElementById("password").value;
+            const ownerUsername = "Owner"; 
+            const ownerPassword = "091165"; 
+
+            if (usernameInput === "" || passwordInput === "") {
+                alert("กรุณากรอกชื่อผู้ใช้และรหัสผ่าน");
+                return; // ถ้ายังไม่กรอกให้หยุดการทำงาน
+            }
+
+            if (usernameInput === ownerUsername && passwordInput === ownerPassword) {
+                window.location.href = "owner_control.html"; // ไปยังหน้าควบคุมของเจ้าของ
+            } else {
+                window.location.href = "student_dashboard.html"; // ส่งไปยังหน้าสำหรับนักเรียน
+            }
+        }
+
+        function goToRegisterPage() {
+            window.location.href = "register.html"; // เปลี่ยนเป็นชื่อไฟล์ที่ใช้สำหรับหน้าสมัครบัญชี
+        }
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <img src="file:///C:/Users/LOID1/OneDrive/%E0%B9%80%E0%B8%94%E0%B8%AA%E0%B8%81%E0%B9%8C%E0%B8%97%E0%B9%87%E0%B8%AD%E0%B8%9B/SKWC.png" alt="logo">
+        <h2>ระบบดูแลนักเรียน</h2>
+
+        <label for="username">ชื่อผู้ใช้:</label>
+        <input type="text" id="username" placeholder="ชื่อผู้ใช้">
+
+        <label for="password">รหัสผ่าน:</label>
+        <input type="password" id="password" placeholder="รหัสผ่าน">
+
+        <div style="text-align: left;">
+            <input type="checkbox" id="remember" name="remember">
+            <label for="remember">จำข้อมูลของฉัน</label>
+        </div>
+
+        <button type="button" onclick="goToNextPage()">ตกลง</button>
+        <button type="button" class="register-button" onclick="goToRegisterPage()">สมัครบัญชี</button>
+
+        <div class="footer">
+            ©Starsoftware Co., Ltd.
+        </div>
+    </div>
+</body>
+</html>
